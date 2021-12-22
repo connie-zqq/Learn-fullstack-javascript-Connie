@@ -1,5 +1,9 @@
-import config, { nodeEnv, logStars }  from './config.js'
+import https from 'https';
 
-// console.log(config, nodeEnv);
+    https.get('https://www.sina.com', res => {
+    console.log('Response status code: ', res.statusCode);
 
-logStars('Function');
+    res.on('data', chunk => {
+        console.log(chunk.toString());
+    });
+});
